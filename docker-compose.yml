@@ -1,0 +1,12 @@
+version: "3"  # Version de Docker Compose (optionnel, selon la version de Docker Compose que tu utilises)
+
+services:
+  app:
+    build:
+      context: .  # Utilise le répertoire actuel comme contexte de construction
+    volumes:
+      - .:/app  # Monte le répertoire de travail actuel dans le conteneur pour l'accès aux fichiers
+    ports:
+      - "8000:8000"  # Expose le port 8000 pour accéder à Django depuis l'extérieur du conteneur
+    command: python manage.py runserver 0.0.0.0:8000  # Commande pour démarrer le serveur Django
+
